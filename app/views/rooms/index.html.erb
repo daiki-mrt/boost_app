@@ -5,7 +5,7 @@
 <div>
   <% @rooms.each do |room| %>
   <ul>
-    <li><%= room.name %></li>
+    <li><%= link_to room.name, room_path(room) %></li>
   </ul>
   <% end %>
 </div>
