@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   def index
+    @rooms = Room.includes(:users).order("created_at DESC")
   end
 
   def new
