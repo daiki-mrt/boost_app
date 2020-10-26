@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <%= link_to "Top", root_path %>
     <% if user_signed_in? %>
       <span>ユーザー名：<%= current_user.name %></span>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
