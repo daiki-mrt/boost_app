@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  height: 700px;
+}
+
+.left-side {
+  background-color: lightgray;
+  width: 300px;
+}
+
+.main {
+  background-color: lightyellow;
+  width: calc(100% - 300px);
+}
+
+.message-area {
+  height: 600px;
+}
+
+.form-area {
+  background-color: linen;
+  height: 100px;
+}
