@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :confirm_join, only: :show
 
   def index
     @rooms = Room.includes(:users).order("created_at DESC")
@@ -25,6 +26,10 @@ class RoomsController < ApplicationController
     @comment = Comment.new
   end
 
+
+  def confirm
+  end
+
   # 参加ボタンでルームにユーザーを登録
   def join
     @room = Room.find(params[:id])
@@ -36,5 +41,12 @@ class RoomsController < ApplicationController
   private
   def room_params
     params.require(:room).permit(:name, :text).merge(user_ids: current_user.id)
+  end
+
+  def confirm_join
+    @room = Room.find(params[:id])
+    unless @room.users.include?(current_user)
+      render :confirm
+    end
   end
 end

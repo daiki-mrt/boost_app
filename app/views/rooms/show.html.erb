@@ -1,10 +1,5 @@
 <div class="wrapper">
   <div class="left-side">
-    <% if @room.users.include?(current_user) %>
-      <p>参加済み</p>
-    <% else %>
-      <%= link_to "参加する", join_room_path(@room) %>
-    <% end %>
 
     <p>ルーム名：<%= @room.name %></p>
     <p>参加ユーザー数：<%= @room.users.count %></p>
