@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   root to: "rooms#index"
   devise_for :users
   devise_scope :user do
