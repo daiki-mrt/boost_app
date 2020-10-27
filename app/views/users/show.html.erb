@@ -1,0 +1,6 @@
+<h1><%= "#{@user.name}のページ" %></h1>
+
+<% unless user_signed_in? && (current_user.id == @user.id) %>
+  <%= link_to "フォロー", root_path %>
+  <%= link_to "DM", root_path %>
+<% end %>
