@@ -3,9 +3,20 @@
 <%= link_to "ルーム作成", new_room_path %>
 
 <div>
+ルーム一覧
   <% @rooms.each do |room| %>
   <ul>
     <li><%= link_to room.name, room_path(room) %></li>
+  </ul>
+  <% end %>
+</div>
+
+
+<div>
+ユーザー一覧
+  <% @users.each do |user| %>
+  <ul>
+    <li><%= link_to user.name, user_path(user) %></li>
   </ul>
   <% end %>
 </div>
