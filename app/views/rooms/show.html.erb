@@ -1,11 +1,19 @@
 <div class="wrapper">
   <div class="left-side">
+    <% if @room.users.include?(current_user) %>
+      <p>参加済み</p>
+    <% else %>
+      <%= link_to "参加する", join_room_path(@room) %>
+    <% end %>
+
     <p>ルーム名：<%= @room.name %></p>
     <p>参加ユーザー数：<%= @room.users.count %></p>
     <p>＜参加ユーザー＞</p>
-    <% @room.users.each do |user| %>
-      <%= user.name %>
-    <% end %>
+    <ul>
+      <% @room.users.each do |user| %>
+        <li><%= user.name %></li>
+      <% end %>
+    </ul>
   </div>
 
   <div class="main">

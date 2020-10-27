@@ -25,6 +25,14 @@ class RoomsController < ApplicationController
     @comment = Comment.new
   end
 
+  # 参加ボタンでルームにユーザーを登録
+  def join
+    @room = Room.find(params[:id])
+    @room.users << current_user
+    @room.save
+    redirect_to room_path(@room)
+  end
+
   private
   def room_params
     params.require(:room).permit(:name, :text).merge(user_ids: current_user.id)
