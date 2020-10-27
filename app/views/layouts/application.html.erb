@@ -13,7 +13,7 @@
     <header>
       <%= link_to "Top", root_path %>
       <% if user_signed_in? %>
-        <span>ユーザー名：<%= current_user.name %></span>
+        <span>ユーザー名：<%= link_to current_user.name, user_path(current_user) %></span>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to '簡単ログイン（閲覧用）', users_guest_sign_in_path, method: :post %>

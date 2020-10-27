@@ -4,6 +4,7 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.includes(:users).order("created_at DESC")
+    @users = User.all
   end
 
   def new
