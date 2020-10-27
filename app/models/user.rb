@@ -9,4 +9,12 @@ class User < ApplicationRecord
   has_many :room_users
   has_many :rooms, through: :room_users
   has_many :comments
+
+  # ゲストユーザー userの検索・作成
+  def self.guest
+    find_or_create_by!(email: "guest@example.com") do |user|
+      user.name = "tamori"
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
 end
