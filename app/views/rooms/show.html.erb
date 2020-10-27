@@ -1,1 +1,32 @@
-<h1><%= @room.name %>のページ</h1>
+<div class="wrapper">
+  <div class="left-side">
+    <p>ルーム名：<%= @room.name %></p>
+    <p>参加ユーザー数：<%= @room.users.count %></p>
+    <p>＜参加ユーザー＞</p>
+    <% @room.users.each do |user| %>
+      <%= user.name %>
+    <% end %>
+  </div>
+
+  <div class="main">
+    <div class="message-area">
+    <ul>
+      <li>コメント</li>
+      <li>コメント</li>
+    </ul>
+    </div>
+  
+
+  <form class="form-area">
+    <input type="text">
+    <input type="submit">
+  </form>
+  </div>
+</div>
+
+
+
+
+
+
+
