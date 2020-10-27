@@ -21,6 +21,8 @@ class RoomsController < ApplicationController
   
   def show
     @room = Room.find(params[:id])
+    @comments = Comment.includes(:user)
+    @comment = Comment.new
   end
 
   private

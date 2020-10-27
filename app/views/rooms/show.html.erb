@@ -11,22 +11,17 @@
   <div class="main">
     <div class="message-area">
     <ul>
-      <li>コメント</li>
-      <li>コメント</li>
+      <% @comments.each do |comment| %>
+        <li><%= comment.text %>  by <%= comment.user.name %></li>
+      <% end %>
     </ul>
     </div>
   
 
-  <form class="form-area">
-    <input type="text">
-    <input type="submit">
-  </form>
+
+  <%= form_with model: [@room, @comment], local: true, class: "form-area" do |f|%>
+    <%= f.text_area :text %>
+    <%= f.submit "送信" %>
+  <% end %>
   </div>
 </div>
-
-
-
-
-
-
-
