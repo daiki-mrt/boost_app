@@ -1,0 +1,16 @@
+<%= "#{@user.name}と#{current_user.name}のDMページ" %>
+
+<div>
+  <%= form_with model: [@space, @message], locals: true do |f| %>
+    <%= f.text_area :text %>
+    <%= f.submit "送信" %>
+  <% end %>
+</div>
+
+<div>
+  <% @messages.each do |message| %>
+  <ul>
+    <li>テキスト：<%= message.text %>/ by <%= message.user.name %></li>
+  </ul>
+  <% end %>
+</div>
