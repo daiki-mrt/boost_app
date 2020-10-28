@@ -14,4 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :spaces, only: :show do
+    resources :messages, only: :create
+  end
+
 end
