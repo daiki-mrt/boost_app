@@ -10,6 +10,11 @@ class User < ApplicationRecord
   has_many :rooms, through: :room_users
   has_many :comments
 
+  has_many :user_spaces
+  has_many :spaces, through: :user_spaces
+  has_many :messages
+
+
   # ゲストユーザー userの検索・作成
   def self.guest
     find_or_create_by!(email: "guest@example.com") do |user|
