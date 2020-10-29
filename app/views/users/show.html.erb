@@ -1,6 +1,13 @@
 <h1><%= "#{@user.name}のページ" %></h1>
 
 <% unless user_signed_in? && (current_user.id == @user.id) %>
-  <%= link_to "フォロー", root_path %>
   <%= link_to "DM", space_path(@user) %>
+  <% if @user.followed_by?(current_user) %>
+    <%= link_to "フォロー済み", user_relationship_path(@user), method: :delete %>
+  <% else %>
+    <%= link_to "フォローする", user_relationships_path(@user), method: :post %>
+  <% end %>
 <% end %>
+
+<%= link_to "フォロー 一覧", root_path %>
+<%= link_to "フォロワー 一覧", root_path %>
