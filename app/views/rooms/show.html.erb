@@ -2,6 +2,8 @@
   <div class="left-side">
 
     <p>ルーム名：<%= @room.name %></p>
+    <%= link_to  "編集", edit_room_path(@room) %>
+    <%= link_to  "削除", room_path(@room), method: :delete %>
     <p>参加ユーザー数：<%= @room.users.count %></p>
     <p>＜参加ユーザー＞</p>
     <ul>

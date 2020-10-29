@@ -1,7 +1,7 @@
 class Room < ApplicationRecord
   validates :name, presence: true
 
-  has_many :room_users
+  has_many :room_users, dependent: :destroy
   has_many :users, through: :room_users
-  has_many :comments
+  has_many :comments, dependent: :destroy
 end
