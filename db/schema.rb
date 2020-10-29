@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_28_065338) do
+ActiveRecord::Schema.define(version: 2020_10_29_073509) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 2020_10_28_065338) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["space_id"], name: "index_messages_on_space_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "following_id"
+    t.integer "follower_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["following_id", "follower_id"], name: "index_relationships_on_following_id_and_follower_id", unique: true
   end
 
   create_table "room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
