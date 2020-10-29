@@ -42,6 +42,15 @@ class RoomsController < ApplicationController
     end
   end
 
+  def destroy
+    set_room
+    if @room.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
+
   # ルーム入室確認ビュー
   def confirm
   end
